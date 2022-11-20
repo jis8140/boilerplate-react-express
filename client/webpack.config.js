@@ -9,7 +9,7 @@ const config = {
   entry: { index: path.resolve(dirname, 'src', 'index.tsx') },
 
   output: {
-    path: path.resolve(dirname, '/build'),
+    path: path.resolve(dirname, './build'),
     filename: 'index.js'
   },
   
