@@ -3,12 +3,22 @@
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {
+    "eslint": "^8.28.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-semistandard": "^17.0.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.1.7",
+    "eslint-plugin-n": "^15.5.1",
+    "eslint-plugin-promise": "^6.1.1",
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "start": "nodemon src/index"
+    "start": "nodemon src/index",
+    "lint": "eslint \"./src/**/*.{js, json}\"",
+    "lint:fix": "eslint --fix \"./src/**/*.{js, json}\""
   },
-  "author": "",
+  "author": "jis8140",
   "license": "ISC",
   "description": "",
   "dependencies": {
