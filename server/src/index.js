@@ -1,11 +1,32 @@
-const express = require('express');
-const morgan = require('morgan');
-require('dotenv').config();
+import express from 'express';
+import morgan from 'morgan';
 
-const app = express();
-const port = process.env.PORT || 8080;
+class App {
+  static connect(port) {
+    const app = new App();
+    app.listen(port);
+  }
 
-app.use(morgan('dev'));
-app.use(express.json());
+  constructor() {
+    this.app = express();
 
-app.listen(port, () => { });
+    this.initMiddlewares();
+  }
+
+  initMiddlewares() {
+    this.app.use(morgan);
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: false }));
+  }
+
+  initRouters() {
+    this.app.use('/api');
+  }
+
+  listen(port) {
+    this.app.listen(port, () => console.log('server on'))
+      .on('error', (error) => console.log(error));
+  }
+}
+
+export default App;
